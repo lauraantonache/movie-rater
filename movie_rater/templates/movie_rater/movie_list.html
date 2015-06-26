@@ -1,23 +1,13 @@
-{% load staticfiles %}
-<html>
-	<head>
-		<title>Movie Rater</title>
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-		<link rel="stylesheet" href="{% static "css/movie_rater.css" %}">
-		<link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-	</head>
-	<body>
-		<div>
-		    <h1><a href="/">Movie Rater</a></h1>
-		</div>
+{% extends "movie_rater/base.html" %}
+{% block content %}
+	{% for movie in movies %}
 
-		{% for movie in movies %}
-		    <div>
-		        <h1><a href="">{{ movie.title }}</a></h1>
-		        <p>{{ movie.description|linebreaks }}</p>
-		        <p>created: {{ movie.created_date }}</p>
-		    </div>
-		{% endfor %}
-	</body>
-</html>
+	    <div class="post">
+	        <h1 id="movie_title"><a href="">{{ movie.title }}</a></h1>
+
+
+	        <p id="description">{{ movie.description|linebreaks }}</p>
+	        <p id="date">created: {{ movie.created_date }}</p>
+	    </div>
+	{% endfor %}
+{% endblock content %}
