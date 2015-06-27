@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<div class="page_header">
-		    <h1><a href="/">Movie Rater</a></h1>
+		    <h1 id="header_title"><a href="/">Movie Rater</a></h1>
 		    <a href="{% url "movie_rater.views.new_movie" %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
 		</div>
 
@@ -19,6 +19,13 @@
 					{% block content %}
 					{% endblock %}
 				</div>
+				<div class="col-md-4">
+		    			<div class="user_info">
+		    				<p>User: {{user.username}}</p>
+		    				<p>Name: {{user.first_name}}</p>
+		    				<p>Email: {{user.email}}</p>
+		    			</div>
+		    		</div>
 		    </div>
 		</div>
 	</body>
