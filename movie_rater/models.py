@@ -4,8 +4,10 @@ from django.utils import timezone
 class Movie(models.Model):
     owner = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
+    extern_link = models.CharField(max_length=500)
     description = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
+    
     
 
 class Person(models.Model):

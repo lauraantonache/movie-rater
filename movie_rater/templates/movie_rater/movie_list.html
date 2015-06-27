@@ -1,13 +1,16 @@
 {% extends "movie_rater/base.html" %}
+
 {% block content %}
 	{% for movie in movies %}
 
-	    <div class="post">
-	        <h1 id="movie_title"><a href="">{{ movie.title }}</a></h1>
+	    <div class="movie">
+	        <h1 id="movie_title"><a href="{% url "movie_rater.views.movie_detail" pk=movie.pk %}">{{ movie.title }}</a></h1>
 
 
 	        <p id="description">{{ movie.description|linebreaks }}</p>
-	        <p id="date">created: {{ movie.created_date }}</p>
+	        <a href={{ movie.extern_link }}>more information</a></li>
+	        <p class="date">created: {{ movie.created_date }}</p>
+	        <hr></hr>
 	    </div>
 	{% endfor %}
 {% endblock content %}
